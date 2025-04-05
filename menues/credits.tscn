@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://vdiygv30ucxt"]
+
+[ext_resource type="Texture2D" uid="uid://bg5tcvveajn8t" path="res://textures/Background.png" id="1_jtj0f"]
+[ext_resource type="Script" path="res://menues/credits.gd" id="1_owams"]
+[ext_resource type="FontFile" uid="uid://dk48qkyps8l7d" path="res://textures/superstar_memesbruh03.ttf" id="2_kvu87"]
+[ext_resource type="Theme" uid="uid://dvcb58rolt8vv" path="res://menues/mainmenu_theme.tres" id="4_ggjyy"]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_owams")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.428
+anchor_top = -0.293
+anchor_right = 1.428
+anchor_bottom = 1.293
+offset_left = 214.0
+offset_top = 146.5
+offset_right = -214.0
+offset_bottom = -146.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jtj0f")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = -10
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_kvu87")
+theme_override_font_sizes/font_size = 32
+text = "The end!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kvu87")
+text = "Thank you for playing! I made this as my final project for 
+Harvards CS50 class 2023. As this is my first game there are
+a few imperfectionss but overall I think I did a decent job!"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Buttons" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme = ExtResource("4_ggjyy")
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Main menu"
+
+[node name="QuitButton" type="Button" parent="ColorRect/MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_bottom = NodePath("../MainMenuButton")
+text = "Exit"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

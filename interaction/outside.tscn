@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://xq47yev2uw6e"]
+
+[ext_resource type="Script" path="res://interaction/brother.gd" id="1_vsoo1"]
+[ext_resource type="PackedScene" uid="uid://bdxqo7cqjwfdm" path="res://interaction/Interactable.tscn" id="2_fuygv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdd21"]
+size = Vector2(5.5, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33rin"]
+
+[node name="outside" type="Node2D"]
+scale = Vector2(1.317, 1.29856)
+script = ExtResource("1_vsoo1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(3.11453, 1.71815)
+shape = SubResource("RectangleShape2D_vdd21")
+
+[node name="Interactable" parent="." instance=ExtResource("2_fuygv")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+scale = Vector2(0.872251, 0.221569)
+shape = SubResource("RectangleShape2D_33rin")
+
+[node name="InteractUI" parent="Interactable" index="1"]
+visible = false
+
+[node name="Label" parent="Interactable/InteractUI" index="0"]
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 246.0
+offset_bottom = 18.0
+scale = Vector2(0.119957, 0.127302)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Backyard. No reason to go out."
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Interactable"]

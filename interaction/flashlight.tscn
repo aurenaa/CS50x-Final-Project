@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch4ydvkq6y0yq"]
+
+[ext_resource type="Texture2D" uid="uid://bcjhgad3vlbnj" path="res://textures/flashlight.png" id="1_bkbcn"]
+[ext_resource type="Script" path="res://interaction/flashlight.gd" id="1_i1eru"]
+[ext_resource type="PackedScene" uid="uid://bdxqo7cqjwfdm" path="res://interaction/Interactable.tscn" id="2_cplmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdd21"]
+size = Vector2(5.5, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33rin"]
+
+[node name="flashlight" type="Node2D"]
+script = ExtResource("1_i1eru")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vdd21")
+
+[node name="Interactable" parent="." instance=ExtResource("2_cplmk")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+scale = Vector2(0.276649, 0.155892)
+shape = SubResource("RectangleShape2D_33rin")
+
+[node name="Label" parent="Interactable/InteractUI" index="0"]
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 139.0
+offset_bottom = 18.0
+scale = Vector2(0.119957, 0.127302)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable"]
+scale = Vector2(0.0142857, 0.0177778)
+texture = ExtResource("1_bkbcn")
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Interactable"]

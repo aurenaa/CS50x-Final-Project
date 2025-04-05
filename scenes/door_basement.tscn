@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b10cqoayuwu8l"]
+
+[ext_resource type="Script" path="res://scripts/doorBasement.gd" id="1_fqk0i"]
+[ext_resource type="Texture2D" uid="uid://b2mgl5s60e605" path="res://textures/black.png" id="1_kjcsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnmkv"]
+size = Vector2(23, 11)
+
+[node name="doorBasement" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_fqk0i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.5, 5.5)
+scale = Vector2(0.111111, 0.0577778)
+texture = ExtResource("1_kjcsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.5, 5.5)
+shape = SubResource("RectangleShape2D_pnmkv")

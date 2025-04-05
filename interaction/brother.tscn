@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://1xg3242c2mrj"]
+
+[ext_resource type="Script" path="res://interaction/brother.gd" id="1_nx8o5"]
+[ext_resource type="PackedScene" uid="uid://bdxqo7cqjwfdm" path="res://interaction/Interactable.tscn" id="2_4g50f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdd21"]
+size = Vector2(13, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33rin"]
+size = Vector2(46.991, 25.6588)
+
+[node name="brother" type="Node2D"]
+script = ExtResource("1_nx8o5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_vdd21")
+
+[node name="Interactable" parent="." instance=ExtResource("2_4g50f")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0.5, 0)
+scale = Vector2(0.276649, 0.155892)
+shape = SubResource("RectangleShape2D_33rin")
+
+[node name="InteractUI" parent="Interactable" index="1"]
+visible = false
+
+[node name="Label" parent="Interactable/InteractUI" index="0"]
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 256.0
+offset_bottom = 22.0
+scale = Vector2(0.0407215, 0.102348)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "My brothers room. No reason to go in."
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Interactable"]

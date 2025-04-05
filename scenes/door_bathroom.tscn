@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgd1xjdhvii5g"]
+
+[ext_resource type="Script" path="res://scripts/door_bathroom.gd" id="1_33jgi"]
+[ext_resource type="Texture2D" uid="uid://b2mgl5s60e605" path="res://textures/black.png" id="1_gi0fq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t2f2"]
+size = Vector2(27.5, 30.5)
+
+[node name="door_bathroom" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_33jgi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+process_mode = 4
+z_as_relative = false
+position = Vector2(-1.75001, 2.34374)
+scale = Vector2(0.131111, 0.145278)
+texture = ExtResource("1_gi0fq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.75, 2.25)
+shape = SubResource("RectangleShape2D_0t2f2")

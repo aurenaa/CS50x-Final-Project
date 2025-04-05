@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfrnwivs2dkb4"]
+
+[ext_resource type="Script" path="res://interaction/RADIO.gd" id="1_aeajh"]
+[ext_resource type="PackedScene" uid="uid://bdxqo7cqjwfdm" path="res://interaction/Interactable.tscn" id="2_hfmip"]
+[ext_resource type="FontFile" uid="uid://dk48qkyps8l7d" path="res://textures/superstar_memesbruh03.ttf" id="3_t6a0b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdd21"]
+size = Vector2(16, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33rin"]
+size = Vector2(58.2165, 25.5537)
+
+[node name="flashlight" type="Node2D"]
+script = ExtResource("1_aeajh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vdd21")
+
+[node name="Interactable" parent="." instance=ExtResource("2_hfmip")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0.0264962, -0.00661002)
+scale = Vector2(0.273926, 0.15705)
+shape = SubResource("RectangleShape2D_33rin")
+
+[node name="Label" parent="Interactable/InteractUI" index="0"]
+offset_left = -9.0
+offset_top = -4.0
+offset_right = 138.0
+offset_bottom = 19.0
+scale = Vector2(0.119957, 0.127302)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="InteractUI2" type="Control" parent="Interactable"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Interactable/InteractUI2"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 139.0
+offset_bottom = 18.0
+scale = Vector2(0.119957, 0.127302)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t6a0b")
+text = "Strange..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Interactable"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjv4xen4ybxlb"]
+
+[ext_resource type="Script" path="res://interaction/flashlight.gd" id="1_srfwa"]
+[ext_resource type="PackedScene" uid="uid://bdxqo7cqjwfdm" path="res://interaction/Interactable.tscn" id="2_t86ml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdd21"]
+size = Vector2(5.5, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33rin"]
+size = Vector2(20.8441, 29.2441)
+
+[node name="flashlight" type="Node2D"]
+script = ExtResource("1_srfwa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_vdd21")
+
+[node name="Interactable" parent="." instance=ExtResource("2_t86ml")]
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2(0.116755, 0.72054)
+scale = Vector2(0.276649, 0.155892)
+shape = SubResource("RectangleShape2D_33rin")
+
+[node name="Label" parent="Interactable/InteractUI" index="0"]
+offset_left = -8.0
+offset_top = -5.0
+offset_right = 139.0
+offset_bottom = 18.0
+scale = Vector2(0.119957, 0.127302)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[connection signal="focused" from="Interactable" to="." method="_on_interactable_focused"]
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]
+[connection signal="unfocused" from="Interactable" to="." method="_on_interactable_unfocused"]
+
+[editable path="Interactable"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://derxoan0kq6i1"]
+
+[ext_resource type="Script" path="res://autoloads/music_controller_bathroom.gd" id="1_ua6m8"]
+
+[node name="music_controller3" type="Node"]
+script = ExtResource("1_ua6m8")
+
+[node name="music" type="AudioStreamPlayer" parent="."]

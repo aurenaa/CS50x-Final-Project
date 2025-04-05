@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu7lljurr3i2j"]
+
+[ext_resource type="Script" path="res://scripts/door_hallway.gd" id="1_jbuoo"]
+[ext_resource type="FontFile" uid="uid://dk48qkyps8l7d" path="res://textures/superstar_memesbruh03.ttf" id="3_6taak"]
+[ext_resource type="Texture2D" uid="uid://b2mgl5s60e605" path="res://textures/black.png" id="3_yp6si"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uisgq"]
+size = Vector2(49.75, 25)
+
+[node name="door_hallway" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_jbuoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+process_mode = 4
+z_as_relative = false
+position = Vector2(-3.125, 3.37499)
+scale = Vector2(0.232222, 0.118889)
+texture = ExtResource("3_yp6si")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.875, 3.5)
+shape = SubResource("RectangleShape2D_uisgq")
+
+[node name="InteractUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="flashlightDark" type="Label" parent="InteractUI"]
+visible = false
+layout_mode = 0
+offset_left = -34.0
+offset_top = -21.0
+offset_right = 116.0
+offset_bottom = 2.0
+scale = Vector2(0.43926, 0.71931)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6taak")
+text = "I need my flashlight."
+horizontal_alignment = 1
+vertical_alignment = 1

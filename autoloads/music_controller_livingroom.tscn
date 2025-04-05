@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://fdfa86xh864j"]
+
+[ext_resource type="Script" path="res://autoloads/music_controller_livingroom.gd" id="1_lhox5"]
+
+[node name="music_controller3" type="Node"]
+script = ExtResource("1_lhox5")
+
+[node name="music" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwisn61dgfvgq"]
+
+[ext_resource type="Script" path="res://scripts/doorKitchen.gd" id="1_bdywo"]
+[ext_resource type="Texture2D" uid="uid://rg3dsq7s84y2" path="res://textures/Doorr.png" id="1_gaq6d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pqkw"]
+size = Vector2(15, 6)
+
+[node name="doorKitchen" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_bdywo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1.19209e-07)
+scale = Vector2(0.337912, 0.34633)
+texture = ExtResource("1_gaq6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 8)
+shape = SubResource("RectangleShape2D_2pqkw")

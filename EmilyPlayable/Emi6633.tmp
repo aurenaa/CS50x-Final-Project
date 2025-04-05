@@ -1,0 +1,218 @@
+[gd_scene load_steps=14 format=3 uid="uid://mkbkmevxfoc2"]
+
+[ext_resource type="Script" path="res://scripts/Emily.gd" id="1_r4jdx"]
+[ext_resource type="Texture2D" uid="uid://eaqjvqk7lnot" path="res://textures/emily_sheet.png" id="2_cgyvt"]
+[ext_resource type="AudioStream" uid="uid://cr6wcrx7tgcq6" path="res://audio/Footsteps.mp3" id="3_3aeji"]
+[ext_resource type="PackedScene" uid="uid://bfotdec8qhiii" path="res://interaction/player_interactor.tscn" id="3_nq5fp"]
+
+[sub_resource type="Animation" id="Animation_wycom"]
+resource_name = "Idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2dgpa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kh28t"]
+resource_name = "emily_down"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footsteps_audio"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j33my"]
+resource_name = "emily_left"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footsteps_audio"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_1lex3"]
+resource_name = "emily_right"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footsteps_audio"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_85us7"]
+resource_name = "emily_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_footsteps_audio"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aqiny"]
+_data = {
+"Idle": SubResource("Animation_wycom"),
+"RESET": SubResource("Animation_2dgpa"),
+"emily_down": SubResource("Animation_kh28t"),
+"emily_left": SubResource("Animation_j33my"),
+"emily_right": SubResource("Animation_1lex3"),
+"emily_up": SubResource("Animation_85us7")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npe62"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vtjm"]
+size = Vector2(12, 15)
+
+[node name="Emily" type="CharacterBody2D"]
+z_index = 1
+z_as_relative = false
+texture_filter = 1
+collision_mask = 2
+script = ExtResource("1_r4jdx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
+position = Vector2(0, -7)
+texture = ExtResource("2_cgyvt")
+hframes = 4
+vframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aqiny")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_npe62")
+
+[node name="room_camera" type="Camera2D" parent="."]
+
+[node name="PlayerInteractor" parent="room_camera" instance=ExtResource("3_nq5fp")]
+player = null
+
+[node name="CollisionShape2D" parent="room_camera/PlayerInteractor" index="0"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_6vtjm")
+
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+process_mode = 1
+stream = ExtResource("3_3aeji")
+
+[editable path="room_camera/PlayerInteractor"]

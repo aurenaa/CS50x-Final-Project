@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://q0xkufxdrhyc"]
+
+[ext_resource type="Script" path="res://scripts/text_box_livingroom.gd" id="1_s8yam"]
+[ext_resource type="FontFile" uid="uid://dk48qkyps8l7d" path="res://textures/superstar_memesbruh03.ttf" id="2_ktmbl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nw2b"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="TextBox" type="CanvasLayer"]
+script = ExtResource("1_s8yam")
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6nw2b")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_fonts/font = ExtResource("2_ktmbl")
+theme_override_font_sizes/font_size = 25
+text = "*"
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 13
+theme_override_fonts/font = ExtResource("2_ktmbl")
+theme_override_font_sizes/font_size = 25
+text = "gwag"
+autowrap_mode = 3
+
+[node name="End" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_ktmbl")
+theme_override_font_sizes/font_size = 25
+text = "v"
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.827

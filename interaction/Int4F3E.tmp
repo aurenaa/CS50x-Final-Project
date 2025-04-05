@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv7reasbxhjju"]
+
+[ext_resource type="Script" path="res://interaction/Interactor.gd" id="1_vpt72"]
+[ext_resource type="FontFile" uid="uid://dk48qkyps8l7d" path="res://superstar_memesbruh03.ttf" id="2_r5qmy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_up8p2"]
+
+[node name="Interactor" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_vpt72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_up8p2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -14.0
+offset_top = -15.0
+offset_right = 133.0
+offset_bottom = 4.0
+scale = Vector2(0.213567, 0.20297)
+theme_override_fonts/font = ExtResource("2_r5qmy")
+text = "press [E] to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
